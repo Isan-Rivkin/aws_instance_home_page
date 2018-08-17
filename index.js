@@ -11,4 +11,13 @@ app.get('/', (req, res) => {
     res.sendFile(file);
 });
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'));
+app.get('/.well-known/acme-challenge/Q29yPuzyrG8toy0FKSmGRFAaUOwUM3PDRil4ptg0UAw', (req,res)=> {
+	let cert = path.join(__dirname,'public/.well-known/acme-challenge/Q29yPuzyrG8toy0FKSmGRFAaUOwUM3PDRil4ptg0UAw');
+	res.sendFile(cert);
+});
+
+app.get('/.well-known/acme-challenge/mNvuGsW1_Fd42_LxZTsYzW-mFROb0b8kv2-8toH485M', (req,res)=> {
+        let cert = path.join(__dirname,'public/.well-known/acme-challenge/mNvuGsW1_Fd42_LxZTsYzW-mFROb0b8kv2-8toH485M');
+        res.sendFile(cert);
+});
+app.listen(80, () => console.log('Example app listening on port 3000!'));
